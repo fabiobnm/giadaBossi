@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #050505;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background:blue;
+    --foreground: #000000;
+  }
+}
+
+
+.homeBg {
+  background-image: url('/sfondo.png'); /* dentro /public */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+@font-face {
+  font-family: 'BastardoGrotesk-Semibold';
+  src: url('/font/BastardoGrotesk-Semibold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background: #f2f1f1;
+  color: black;
+  font-family: 'BastardoGrotesk-Semibold'
+}
+
+p { 
+  font-size: 14px;
+}
+
+a{
+  font-size: 16px;
+}
+
+.opacityAnim{
+  animation: opacAnim;
+  animation-duration: .2s;
+}
+.opacityAnimLong{
+  animation: opacAnim;
+  animation-duration: 2s;
+}
+
+@keyframes opacAnim {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+.movimento-wrapper:hover .movimento {
+  opacity: 0.2;
+  transition: opacity .3s;
+}
+
+.movimento-wrapper .movimento:hover {
+  opacity: 1;
+}
