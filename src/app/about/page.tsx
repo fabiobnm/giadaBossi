@@ -53,7 +53,7 @@ export default async function Home() {
             display: "flex",
           }}
         >
-          <div style={{width:'40vW', marginLeft:'20px', marginTop:'100px'}}>
+          <div style={{width:'40vW', marginLeft:'10px', marginTop:'100px'}}>
             <div style={{marginBottom:'50px', marginTop:'30px'}} dangerouslySetInnerHTML={{ __html: about?.bio?.html ?? "Nessun contenuto AboutUs trovato." }}/>
             ADV
             <div style={{marginBottom:'50px', marginTop:'30px'}} dangerouslySetInnerHTML={{ __html: about?.adv?.html ?? "Nessun contenuto AboutUs trovato." }}/>
@@ -63,10 +63,12 @@ export default async function Home() {
           <img
             src={about?.image?.url || ""}
             style={{
-              height: "90vH",
+              height: "100vH",
               position: "fixed",
-              right: '10px',
-              top:'10px'
+              right: '0px',
+              top:'0px',
+              padding:'10px'
+            
             }}
             alt=""
           />

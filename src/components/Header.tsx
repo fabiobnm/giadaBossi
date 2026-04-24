@@ -23,6 +23,10 @@ export default function Header({ commercials, narratives }: Props) {
   const pathname = usePathname();
   const isAbout = pathname === "/about";
 const isWork = pathname.startsWith("/work/");
+const isHome = pathname === "/";
+const currentSlug = pathname.split("/").pop();
+const isNarrative = pathname.startsWith("/work/narrative/");
+const isCommercial = pathname.startsWith("/work/commercial/");
 
   function goHome() {
     setMenuUp(false);
@@ -93,7 +97,7 @@ const isWork = pathname.startsWith("/work/");
           display: "grid",
           gridAutoFlow: "column",
           gridTemplateColumns:'repeat(12, 1fr)',
-          position: isAbout ? 'relative' : 'fixed',
+          position: 'fixed',
           width:'100%'
 
         }}
@@ -103,36 +107,62 @@ const isWork = pathname.startsWith("/work/");
         }}>Giada Bossi</a>
         <p style={{
           gridColumn:'4 / span 1'
-        }}> {isAbout ? <a style={{fontSize:'16px'}} href={`/work/commercial/${commercials?.[0]?.projects?.[0]?.slug || ""}`}>Work</a> : "Director"}</p>
+        }} className={isAbout ? 'opacity02' : ''}> {isAbout ? <a style={{fontSize:'16px'}} href={`/work/commercial/${commercials?.[0]?.projects?.[0]?.slug || ""}`}>Work</a> : "Director"}</p>
         <a onClick={goAbout} style={{
-          gridColumn:'5 / span 1'
+          gridColumn:'5 / span 1',
+          opacity: isWork ? '.2' : '1'
         }}>About</a>
         <div style={{
           display: (isAbout ) ? "none" : "block",
           opacity: darkUp ? '0' : '1',
           transition: 'opacity .6s ,  color .5s ease 0.8s',
            gridColumn:'7 / span 2',  height: 'fit-content',
-        }} className="movimento-wrapper">
-          <p>Commercial</p>
-          {commercials?.[0]?.projects?.map((project, index) => (
-  <p key={index} className="movimento"
-              onClick={() => goToCommercial(project.slug)}
-              style={{ cursor: "pointer" }}
-              >{project.title}</p>
-))}
+        }} >
+          <p style={{marginBottom:'20px', opacity: isNarrative ? '.2' : '1'}}>Commercial</p>
+          <div className="movimento-wrapper">
+         {commercials?.[0]?.projects?.map((project, index) => {
+  const isActive = currentSlug === project.slug;
+
+  return (
+    <p
+      key={index}
+       className={(isActive && isWork) ? "movimento active" : isHome ? 'movimentoHome' : 'movimento'}
+      onClick={() => goToCommercial(project.slug)}
+      style={{
+        cursor: "pointer",       
+      }}
+    >
+      {project.title}
+    </p>
+  );
+})}
+        </div>
         </div>
         <div  style={{
           display: (isAbout ) ? "none" : "block",
            opacity: darkUp ? '0' : '1',
            transition: 'opacity .6s ,  color .5s ease 0.8s',
            gridColumn:'9 / span 2', height: 'fit-content'
-        }} className="movimento-wrapper">
-        <p>Narrative</p>
-        {narratives?.[0]?.projects?.map((project, index) => (
-  <p key={index} className="movimento"
-              onClick={() => goToNarrative(project.slug)}
-              style={{ cursor: "pointer" }}>{project.title}</p>
-))}
+        }}>
+        <p style={{marginBottom:'20px', opacity: isCommercial ? '.2' : '1'}}>Narrative</p>
+         <div className="movimento-wrapper">
+        {narratives?.[0]?.projects?.map((project, index) => {
+  const isActive = currentSlug === project.slug;
+
+  return (
+    <p
+      key={index}
+       className={(isActive && isWork) ? "movimento active" : isHome ? 'movimentoHome' : 'movimento'}
+      onClick={() => goToNarrative(project.slug)}
+      style={{
+        cursor: "pointer",
+      }}
+    >
+      {project.title}
+    </p>
+  );
+})}
+</div>   
         </div>
       </div>
     </header>

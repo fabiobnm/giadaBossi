@@ -106,9 +106,9 @@ export default async function WorkPage({ params }: PageProps) {
     gridAutoFlow: 'column',
     gridTemplateColumns: 'repeat(12, 1fr)',
     width: '100vW'}}>
-        <a href="/" style={{gridColumn:'1 / span 2'}}>Giada bossi</a>
-        <a style={{gridColumn:'4 / span 1'}}>Works</a>
-        <a href="/about" style={{gridColumn:'5 / span 1'}}>About</a>
+        <a href="/" style={{gridColumn:'1 / span 2'}}>Giada Bossi</a>
+        <a style={{gridColumn:'4 / span 1'}}>Work</a>
+        <a href="/about" className="aboutOpacity" style={{gridColumn:'5 / span 1'}}>About</a>
       </div>
    <div style={{display:'none', marginTop:'40vH', gap:'50px',position:'fixed'}}>
       <div >
@@ -147,9 +147,9 @@ export default async function WorkPage({ params }: PageProps) {
         style={{
           padding: "10px",
           paddingTop: "0px",
-          width: "50%",
+          width: "60%",
           position: "relative",
-          marginLeft: '50%',
+          marginLeft: '40%',
           top: 0,
           
         }}
@@ -175,7 +175,7 @@ export default async function WorkPage({ params }: PageProps) {
               />
         )}
 
-
+        <p style={{marginTop:'50px', marginBottom:'20px'}}>STILLS</p>
           {project.gallery?.map((item, index) => {
             if (item.__typename === "Gallery") {
               return (
@@ -234,8 +234,10 @@ export default async function WorkPage({ params }: PageProps) {
           )}
 
           {project.fullCredits?.html && (
-            <div
-              style={{ marginBottom: "40px", width:'50%' }}
+            <div className="fullCredits"
+              style={{ marginBottom: "40px", width:'50%', height:' 500px', overflow: 'scroll',
+    WebkitMaskImage: 'linear-gradient(black, transparent)',
+    maskImage: 'linear-gradient(black, transparent)', paddingBottom:'30%' }}
               dangerouslySetInnerHTML={{ __html: project.fullCredits.html }}
             />
           )}

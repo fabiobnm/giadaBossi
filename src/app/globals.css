@@ -71,3 +71,36 @@ a{
 .movimento-wrapper .movimento:hover {
   opacity: 1;
 }
+.movimento-wrapper:hover .movimentoHome {
+  opacity: 0.2;
+  transition: opacity .3s;
+}
+
+.movimento-wrapper .movimentoHome:hover {
+  opacity: 1;
+}
+
+.aboutOpacity{
+  opacity: .2 !important; 
+}
+.aboutOpacity:hover{
+  opacity: 1;
+}
+
+.movimento{
+  opacity: .2;
+}
+
+.active{
+  opacity: 1 !important;
+}
+
+.movimentoHome{
+  opacity: 1;
+}
+.opacity02{
+  opacity: .2;
+}
+.opacity02:hover{
+  opacity: 1;
+}
