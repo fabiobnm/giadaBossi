@@ -102,7 +102,7 @@ export default async function WorkPage({ params }: PageProps) {
     <div style={{ minHeight: "100vh" }}>
               <Header commercials={commercials} narratives={narratives} />
       
-      <div style={{ position:'fixed', padding:10 ,display: 'grid',
+      <div className="headerWork" style={{ position:'fixed', padding:10 ,
     gridAutoFlow: 'column',
     gridTemplateColumns: 'repeat(12, 1fr)',
     width: '100vW'}}>
@@ -143,21 +143,14 @@ export default async function WorkPage({ params }: PageProps) {
 
       </div>
 
-      <main className="opacityAnimLong"
-        style={{
-          padding: "10px",
-          paddingTop: "0px",
-          width: "60%",
-          position: "relative",
-          marginLeft: '40%',
-          top: 0,
-          
-        }}
+      <main className="workContent opacityAnimLong"
       >
 
         <div>
 
         {embedUrl && (
+
+             (project.width / project.height > 1) ?
             
               <iframe
                 src={embedUrl}
@@ -173,6 +166,24 @@ export default async function WorkPage({ params }: PageProps) {
                   marginTop:'10px'
                 }}
               />
+        : 
+
+           <iframe
+                src={embedUrl}
+                title={project.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{
+                  position: "relative",
+                  inset: 0,
+                  height: 'calc(100vH - 20px)',
+                  width:'stretch',
+                  border: 0,
+                  marginBottom:'10px',
+                  marginTop:'10px'
+                }}
+              />
+
         )}
 
         <p style={{marginTop:'50px', marginBottom:'20px'}}>STILLS</p>
@@ -225,21 +236,13 @@ export default async function WorkPage({ params }: PageProps) {
             return null;
           })}
 
-         <div style={{ display:'flex', gap:'40px'}}>
+         <div className="creditDiv" >
           {project.mainCredits?.html && (
-            <div
-              style={{ marginBottom: "20px", width:'50%' }}
-              dangerouslySetInnerHTML={{ __html: project.mainCredits.html }}
-            />
+            <div className="mainCredit" dangerouslySetInnerHTML={{ __html: project.mainCredits.html }}/>
           )}
 
           {project.fullCredits?.html && (
-            <div className="fullCredits"
-              style={{ marginBottom: "40px", width:'50%', height:' 500px', overflow: 'scroll',
-    WebkitMaskImage: 'linear-gradient(black, transparent)',
-    maskImage: 'linear-gradient(black, transparent)', paddingBottom:'30%' }}
-              dangerouslySetInnerHTML={{ __html: project.fullCredits.html }}
-            />
+            <div className="fullCredits" dangerouslySetInnerHTML={{ __html: project.fullCredits.html }}/>
           )}
           </div>
 

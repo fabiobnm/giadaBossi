@@ -45,31 +45,16 @@ export default async function Home() {
     <div className="min-h-screen flex flex-col transition-colors duration-300">
       <main className="">
         <Header commercials={commercials} narratives={narratives} />
-        <div
-          style={{
-
-            top: 0,
-            left: 0,
-            display: "flex",
-          }}
-        >
-          <div style={{width:'40vW', marginLeft:'10px', marginTop:'100px'}}>
+        <div className="aboutDiv">
+          <div className="textAbout">
             <div style={{marginBottom:'50px', marginTop:'30px'}} dangerouslySetInnerHTML={{ __html: about?.bio?.html ?? "Nessun contenuto AboutUs trovato." }}/>
             ADV
             <div style={{marginBottom:'50px', marginTop:'30px'}} dangerouslySetInnerHTML={{ __html: about?.adv?.html ?? "Nessun contenuto AboutUs trovato." }}/>
             PRESS
             <div style={{marginBottom:'150px', marginTop:'30px'}} dangerouslySetInnerHTML={{ __html: about?.press?.html ?? "Nessun contenuto AboutUs trovato." }}/>
           </div>
-          <img
+          <img className="imageAbout"
             src={about?.image?.url || ""}
-            style={{
-              height: "100vH",
-              position: "fixed",
-              right: '0px',
-              top:'0px',
-              padding:'10px'
-            
-            }}
             alt=""
           />
         </div>

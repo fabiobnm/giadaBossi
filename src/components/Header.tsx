@@ -45,10 +45,13 @@ const isCommercial = pathname.startsWith("/work/commercial/");
     setDarkUp(true)
     setLeftkUp(false)
 
+     const delay = isWork ? 0 : 1500;
 
-    setTimeout(() => {
+  setTimeout(() => {
       router.push("/about");
-    }, 1500);
+  }, delay);
+
+  
   }
 
 
@@ -84,7 +87,28 @@ const isCommercial = pathname.startsWith("/work/commercial/");
   }
   return (
     <header style={{position:'relative', zIndex:99999}}>
-      <div
+      <div className="headerWork" style={{
+          gridAutoFlow: "column",
+          gridTemplateColumns:'repeat(12, 1fr)',
+          position: 'fixed',
+          width:'100%',
+          color:'black',
+           transition: "transform 1.5s ease",
+           transform: (isWork)
+      ? "translateX(-0vW)" : 'translateX(-50vW)',
+        padding:'10px'}}>
+         <a href="/" style={{
+          gridColumn:'1 / span 2'
+        }}>Giada Bossi</a>
+        <a style={{
+          gridColumn:'4 / span 1'
+        }} className={isAbout ? 'opacity02' : ''}> Work</a>
+        <a onClick={goAbout} style={{
+          gridColumn:'5 / span 1',
+          opacity: isWork ? '.2' : '1'
+        }}>About</a>
+      </div>
+      <div className="gridHeader"
         style={{
           padding: "10px",
              transform: (isWork || leftUp)
@@ -92,14 +116,7 @@ const isCommercial = pathname.startsWith("/work/commercial/");
       : (isAbout || darkUp)
       ? "translateY(0vh) "
       : "translateY(40vH)",
-          transition: "transform 1.5s ease , color .5s ease 0.8s",
           color: (isAbout || isWork || darkUp || leftUp) ? "black" : "white",
-          display: "grid",
-          gridAutoFlow: "column",
-          gridTemplateColumns:'repeat(12, 1fr)',
-          position: 'fixed',
-          width:'100%'
-
         }}
       >
         <a onClick={goHome} style={{
@@ -165,6 +182,85 @@ const isCommercial = pathname.startsWith("/work/commercial/");
 </div>   
         </div>
       </div>
+     <div className="headerMobile" 
+     style={{  transition: 'opacity .6s ,  color .5s ease 0.8s',
+     color: (isAbout || isWork || darkUp || leftUp) ? "black" : "white",}}>
+      <div className="headerMobileGrid">
+          <a href="/" style={{
+          gridColumn:'1 / span 1', whiteSpace:'nowrap',
+        }}>Giada Bossi</a>
+        {isHome ?   <a style={{
+          gridColumn:'3 / span 1',
+          textAlign:'center'
+        }} className={isAbout ? 'opacity02' : ''}> Director</a> 
+         : <a href={`/work/commercial/${commercials?.[0]?.projects?.[0]?.slug || ""}`}
+          style={{
+          gridColumn:'3 / span 1',
+          textAlign:'center'
+        }} className={isAbout ? 'opacity02' : ''}> Work</a> }
+      
+        <a onClick={goAbout} style={{
+          gridColumn:'5 / span 1',
+          textAlign:'right',
+          opacity: isWork ? '.2' : '1'
+        }}>About</a>
+      </div>
+             <div style={{
+          display: (isAbout ) ? "none" : "block",
+          opacity: darkUp ? '0' : '1',
+          transition: 'opacity .6s ,  color .5s ease 0.8s',
+           gridColumn:'7 / span 2',  height: 'fit-content',
+           padding:'10px', marginTop:'10vH'
+        }} >
+          <p style={{marginBottom:'20px', opacity: isNarrative ? '.2' : '1'}}>Commercial</p>
+          <div className="movimento-wrapper">
+         {commercials?.[0]?.projects?.map((project, index) => {
+  const isActive = currentSlug === project.slug;
+
+  return (
+    <p
+      key={index}
+       className={(isActive && isWork) ? "movimento active" : isHome ? 'movimentoHome' : 'movimento'}
+      onClick={() => goToCommercial(project.slug)}
+      style={{
+        cursor: "pointer",       
+      }}
+    >
+      {project.title}
+    </p>
+  );
+})}
+        </div>
+        </div>
+           <div  style={{
+          display: (isAbout ) ? "none" : "block",
+           opacity: darkUp ? '0' : '1',
+           transition: 'opacity .6s ,  color .5s ease 0.8s',
+           gridColumn:'9 / span 2', height: 'fit-content',
+           padding:'10px',
+           marginTop:'20px'
+        }}>
+        <p style={{marginBottom:'20px', opacity: isCommercial ? '.2' : '1'}}>Narrative</p>
+         <div className="movimento-wrapper">
+        {narratives?.[0]?.projects?.map((project, index) => {
+  const isActive = currentSlug === project.slug;
+
+  return (
+    <p
+      key={index}
+       className={(isActive && isWork) ? "movimento active" : isHome ? 'movimentoHome' : 'movimento'}
+      onClick={() => goToNarrative(project.slug)}
+      style={{
+        cursor: "pointer",
+      }}
+    >
+      {project.title}
+    </p>
+  );
+})}
+</div>   
+        </div>
+     </div>
     </header>
   );
 }

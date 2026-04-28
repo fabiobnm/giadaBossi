@@ -34,5 +34,5 @@ export default function TimeIT() {
     return () => clearInterval(interval);
   }, []);
 
-  return <p style={{gridColumn: '12 / span 1', textAlign:'right'}}>{time}</p>;
+  return <p style={{gridColumn: '12 / span 1', textAlign:'right', whiteSpace:'nowrap'}}>{time}</p>;
 }

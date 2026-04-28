@@ -104,3 +104,132 @@ a{
 .opacity02:hover{
   opacity: 1;
 }
+
+.gridHeader{
+  transition: transform 1.5s ease , color .5s ease 0.8s;
+  padding: 10px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(12, 1fr);
+  position: fixed;
+  width: 100%;
+}
+.headerWork{
+  display: grid
+}
+.headerMobile{
+  display: none !important;
+}
+
+.workContent{
+padding: 10px;
+    padding-top: 0px;
+    width: 60% !important;
+    position: relative;
+    margin-left: 40% !important;
+    top: 0;
+}
+.aboutDiv{
+     top: 0;
+     left: 0;
+     display: flex
+}
+.imageAbout{
+  height: 100vh !important;
+  position: fixed !important;
+  right: 0px !important;
+  top: 0px !important;
+  padding: 10px !important;
+}
+.textAbout{
+    width: 40vw;
+    margin-left: 10px;
+    margin-top: 100px;
+}
+.creditDiv{
+  display: flex;
+  gap: 40px;
+}
+.mainCredit{
+  margin-bottom: 20px;
+  width: 50%;
+}
+.fullCredits{
+  margin-bottom: 40px;
+  width: 50%;
+  height: 500px;
+  overflow: scroll;
+  -webkit-mask-image: linear-gradient(black, transparent);
+  mask-image: linear-gradient(black, transparent);
+  padding-bottom: 30%;
+}
+
+
+
+
+@media (max-width: 600px) {
+ .gridHeader{
+  display: none;
+ }
+
+.headerWork{
+  display: none;
+}
+.headerMobile{
+  display: block !important;
+}
+.headerMobileGrid{
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 10px
+
+}
+.workContent{
+  padding: 10px;
+    padding-top: 0px;
+    width: 100% !important;
+    position: relative;
+    margin-left: 0% !important; 
+    top: 0;
+}
+.imageAbout{
+  width: 70vW !important;
+  height: auto !important;
+  position: relative !important;
+  right: 0px !important;
+  top: 0px !important;
+  padding: 10px !important;
+  margin-top: 10vH;
+}
+.aboutDiv{
+    flex-direction: column-reverse;
+}
+.textAbout{
+    width: 100vw;
+    margin-left: 0px;
+    padding: 10px;
+    margin-top: 0px;
+}
+.creditDiv{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.mainCredit{
+  margin-bottom: 20px;
+  width: 100%;
+}
+.fullCredits{
+  margin-bottom: 40px;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  -webkit-mask-image:none;
+  mask-image: none;
+  padding-bottom: 30%;
+}
+
+
+}
+
