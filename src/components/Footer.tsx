@@ -24,7 +24,7 @@ const isWork = pathname.startsWith("/work/");
           gridTemplateColumns: 'repeat(12, 1fr)',
           color: (isAbout || isWork ) ? "black" : "white",
           width: "100vW",
-          background: (isAbout || isWork ) ? '#f2f1f1' : "",
+          
         }}
       >
         <p style={{gridColumn: '1 / span 1'}}>Instagram</p>

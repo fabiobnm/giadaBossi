@@ -157,7 +157,7 @@ padding: 10px;
 .fullCredits{
   margin-bottom: 40px;
   width: 50%;
-  height: 500px;
+  height: calc(50vH - 10px);
   overflow: scroll;
   -webkit-mask-image: linear-gradient(black, transparent);
   mask-image: linear-gradient(black, transparent);
