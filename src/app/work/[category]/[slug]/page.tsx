@@ -105,6 +105,7 @@ export default async function WorkPage({ params }: PageProps) {
       <div className="headerWork" style={{ position:'fixed', padding:10 ,
     gridAutoFlow: 'column',
     gridTemplateColumns: 'repeat(12, 1fr)',
+    display:'none',
     width: '100vW'}}>
         <a href="/" style={{gridColumn:'1 / span 2'}}>Giada Bossi</a>
         <a style={{gridColumn:'4 / span 1'}}>Work</a>

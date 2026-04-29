@@ -126,7 +126,7 @@ const isCommercial = pathname.startsWith("/work/commercial/");
         }}>Giada Bossi</a>
         <p style={{
           gridColumn:'4 / span 1'
-        }} className={isAbout ? 'opacity02' : ''}> {isAbout ? <a style={{fontSize:'16px'}} href={`/work/commercial/${commercials?.[0]?.projects?.[0]?.slug || ""}`}>Work</a> : "Director"}</p>
+        }} className={isAbout ? 'opacity02' : ''}> {isAbout ? <a style={{fontSize:'14px'}} href={`/work/commercial/${commercials?.[0]?.projects?.[0]?.slug || ""}`}>Work</a> : "Director"}</p>
         <a onClick={goAbout} style={{
           gridColumn:'5 / span 1',
           cursor:'pointer',
