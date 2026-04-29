@@ -110,6 +110,7 @@ const isCommercial = pathname.startsWith("/work/commercial/");
       </div>
       <div className="gridHeader"
         style={{
+          width:'100vW',
           padding: "10px",
              transform: (isWork || leftUp)
       ? "translateX(calc(-50vW + 10px))translateY(40vH)"
