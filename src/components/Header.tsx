@@ -91,7 +91,7 @@ const isCommercial = pathname.startsWith("/work/commercial/");
           gridAutoFlow: "column",
           gridTemplateColumns:'repeat(12, 1fr)',
           position: 'fixed',
-          width:'100%',
+          width:'100vW',
           color:'black',
            transition: "transform 1.5s ease",
            transform: (isWork)
