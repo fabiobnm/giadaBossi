@@ -103,9 +103,9 @@ const isCommercial = pathname.startsWith("/work/commercial/");
         <a style={{
           gridColumn:'4 / span 1'
         }} className={isAbout ? 'opacity02' : ''}> Work</a>
-        <a onClick={goAbout} style={{
+        <a onClick={goAbout} className={isWork ? 'opacity02': ''} style={{
           gridColumn:'5 / span 1',
-          opacity: isWork ? '.2' : '1'
+          cursor:'pointer'
         }}>About</a>
       </div>
       <div className="gridHeader"
@@ -120,13 +120,15 @@ const isCommercial = pathname.startsWith("/work/commercial/");
         }}
       >
         <a onClick={goHome} style={{
-          gridColumn:'1 / span 2'
+          gridColumn:'1 / span 2',
+          cursor:'pointer'
         }}>Giada Bossi</a>
         <p style={{
           gridColumn:'4 / span 1'
         }} className={isAbout ? 'opacity02' : ''}> {isAbout ? <a style={{fontSize:'16px'}} href={`/work/commercial/${commercials?.[0]?.projects?.[0]?.slug || ""}`}>Work</a> : "Director"}</p>
         <a onClick={goAbout} style={{
           gridColumn:'5 / span 1',
+          cursor:'pointer',
           opacity: isWork ? '.2' : '1'
         }}>About</a>
         <div style={{
