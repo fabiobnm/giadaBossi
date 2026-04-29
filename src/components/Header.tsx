@@ -119,7 +119,7 @@ const isCommercial = pathname.startsWith("/work/commercial/");
           color: (isAbout || isWork || darkUp || leftUp) ? "black" : "white",
         }}
       >
-        <a onClick={goHome} style={{
+        <a onClick={!isHome ? goHome : undefined} style={{
           gridColumn:'1 / span 2',
           cursor:'pointer'
         }}>Giada Bossi</a>
