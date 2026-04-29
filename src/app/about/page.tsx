@@ -47,7 +47,7 @@ export default async function Home() {
         <Header commercials={commercials} narratives={narratives} />
         <div className="aboutDiv">
           <div className="textAbout">
-            <div style={{marginBottom:'50px', marginTop:'30px'}} dangerouslySetInnerHTML={{ __html: about?.bio?.html ?? "Nessun contenuto AboutUs trovato." }}/>
+            <div style={{marginBottom:'50px'}} dangerouslySetInnerHTML={{ __html: about?.bio?.html ?? "Nessun contenuto AboutUs trovato." }}/>
             ADV
             <div style={{marginBottom:'50px', marginTop:'30px'}} dangerouslySetInnerHTML={{ __html: about?.adv?.html ?? "Nessun contenuto AboutUs trovato." }}/>
             PRESS

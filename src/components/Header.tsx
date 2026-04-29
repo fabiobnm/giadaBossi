@@ -214,7 +214,7 @@ const isCommercial = pathname.startsWith("/work/commercial/");
            gridColumn:'7 / span 2',  height: 'fit-content',
            padding:'10px', marginTop:'10vH'
         }} >
-          <p style={{marginBottom:'20px', opacity: isNarrative ? '.2' : '1'}}>Commercial</p>
+          <p style={{marginBottom:'20px',fontSize:'18px', opacity: isNarrative ? '.2' : '1'}}>Commercial</p>
           <div className="movimento-wrapper">
          {commercials?.[0]?.projects?.map((project, index) => {
   const isActive = currentSlug === project.slug;
@@ -242,7 +242,7 @@ const isCommercial = pathname.startsWith("/work/commercial/");
            padding:'10px',
            marginTop:'20px'
         }}>
-        <p style={{marginBottom:'20px', opacity: isCommercial ? '.2' : '1'}}>Narrative</p>
+        <p style={{marginBottom:'20px',fontSize:'18px', opacity: isCommercial ? '.2' : '1'}}>Narrative</p>
          <div className="movimento-wrapper">
         {narratives?.[0]?.projects?.map((project, index) => {
   const isActive = currentSlug === project.slug;

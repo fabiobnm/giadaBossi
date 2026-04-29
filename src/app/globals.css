@@ -46,7 +46,7 @@ p {
 }
 
 a{
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .opacityAnim{
@@ -145,6 +145,8 @@ padding: 10px;
     width: 40vw;
     margin-left: 10px;
     margin-top: 100px;
+    padding-top: 30px;
+    font-size: 14px;
 }
 .creditDiv{
   display: flex;
@@ -157,32 +159,43 @@ padding: 10px;
 .fullCredits{
   margin-bottom: 40px;
   width: 50%;
-  height: calc(50vH - 10px);
+  height: 30vH ;
   overflow: scroll;
   -webkit-mask-image: linear-gradient(black, transparent);
   mask-image: linear-gradient(black, transparent);
-  padding-bottom: 30%;
+  padding-bottom: 7%;
 }
 
 
 
 
 @media (max-width: 600px) {
- .gridHeader{
+p { 
+  font-size: 16px;
+}
+
+a{
+  font-size: 16px;
+}
+.movimento{
+  font-size: 18px !important;
+}
+  .gridHeader{
   display: none;
  }
 
 .headerWork{
   display: none;
 }
+
 .headerMobile{
   display: block !important;
 }
 .headerMobileGrid{
   display: grid !important;
   grid-template-columns: repeat(5, 1fr);
-  padding: 10px
-
+  padding: 10px;
+  height: 40px;
 }
 .workContent{
   padding: 10px;
@@ -193,13 +206,13 @@ padding: 10px;
     top: 0;
 }
 .imageAbout{
-  width: 70vW !important;
+  width: 100vW !important;
   height: auto !important;
   position: relative !important;
   right: 0px !important;
   top: 0px !important;
-  padding: 10px !important;
-  margin-top: 10vH;
+  padding: 0px !important;
+  margin-top: -40px !important;
 }
 .aboutDiv{
     flex-direction: column-reverse;
@@ -207,7 +220,7 @@ padding: 10px;
 .textAbout{
     width: 100vw;
     margin-left: 0px;
-    padding: 10px;
+    padding: 20px;
     margin-top: 0px;
 }
 .creditDiv{
