@@ -198,7 +198,7 @@ export default async function WorkPage({ params }: PageProps) {
           {project.gallery?.map((item, index) => {
             if (item.__typename === "Gallery") {
               return (
-                <div key={index} style={{ marginBottom: "20px" }}>
+                <div key={index} style={{ marginBottom: "0px" }}>
                   {item.images.map((img, imgIndex) => (
                     <img
                       key={imgIndex}
@@ -223,7 +223,7 @@ export default async function WorkPage({ params }: PageProps) {
                     display: "grid",
                     gridTemplateColumns: "1fr 1fr",
                     gap: "10px",
-                    marginBottom: "20px",
+                    marginBottom: "10px",
                   }}
                 >
                   {item.doubleImages.map((img, imgIndex) => (

@@ -5,13 +5,15 @@ import Footer from "@/components/Footer";
 import { useTheme } from "@/context/ThemeContext";
 import type { Commercial } from "@/lib/queries/commercials";
 import { Narrative } from "@/lib/queries/narratives";
+import FullscreenVideo from "@/components/FullscreenVideo"
 
 type Props = {
   commercials: Commercial[];
   narratives: Narrative[];
+  video: string;
 };
 
-export default function HomeClient({ commercials, narratives }: Props) {
+export default function HomeClient({ commercials, narratives, video  }: Props) {
   const { dark } = useTheme();
   const { left } = useTheme();
 
@@ -26,11 +28,19 @@ export default function HomeClient({ commercials, narratives }: Props) {
       style={{opacity:(dark || left) ? 0 : 1,
         transition: 'opacity 1s',
         transitionDelay:'1s',
-        position: 'absolute',
+        position: 'fixed',
         width: '100vW',
         top: 0
       }}
     >
+        {video && (
+          <FullscreenVideo
+            src={`https://player.vimeo.com/video/${video}?background=1&loop=1&byline=0&title=0`}
+            width={3}
+            height={2}
+          />
+        )}
+    
       <div
         style={{
           position: "fixed",
@@ -40,6 +50,7 @@ export default function HomeClient({ commercials, narratives }: Props) {
           height: "100vH",
           backdropFilter: (dark || left) ? "blur(80px)" : "blur(0px)",
           transition: "1.5s",
+          zIndex:3
         }}
       ></div>
 
