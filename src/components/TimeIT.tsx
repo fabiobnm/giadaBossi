@@ -1,9 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+
 
 export default function TimeIT() {
   const [time, setTime] = useState("");
+   const pathname = usePathname();
+   const isAbout = pathname === "/about";
 
   useEffect(() => {
     const update = () => {
@@ -34,5 +38,5 @@ export default function TimeIT() {
     return () => clearInterval(interval);
   }, []);
 
-  return <p style={{gridColumn: '12 / span 1', textAlign:'right', whiteSpace:'nowrap'}}>{time}</p>;
+  return <p style={{ display:isAbout?'none':'block'  ,gridColumn: '12 / span 1', textAlign:'right', whiteSpace:'nowrap'}}>{time}</p>;
 }

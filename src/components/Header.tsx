@@ -7,6 +7,9 @@ import { useTheme } from "../context/ThemeContext";
 import type { Commercial } from "@/lib/queries/commercials";
 import type { Narrative } from "@/lib/queries/narratives";
 
+export const dynamic='force-static';
+export const revalidate= 0;
+
 type Props = {
   commercials: Commercial[];
   narratives: Narrative[];

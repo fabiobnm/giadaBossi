@@ -14,6 +14,9 @@ import {
 } from "@/lib/queries/narratives";
 import Header from "@/components/Header";
 
+export const dynamic='force-static';
+export const revalidate= 0;
+
 
 async function getCommercials() {
   const data = await hygraph.request<CommercialsPageQueryResult>(
@@ -187,7 +190,11 @@ export default async function WorkPage({ params }: PageProps) {
 
         )}
 
-        <p style={{marginTop:'50px', marginBottom:'20px'}}>STILLS</p>
+        {project.gallery.length > 0 ? (
+  <p style={{ marginTop: "50px", marginBottom: "20px" }}>
+    STILLS
+  </p>
+): <br></br>}
           {project.gallery?.map((item, index) => {
             if (item.__typename === "Gallery") {
               return (

@@ -9,6 +9,9 @@ import {
   type NarrativesPageQueryResult,
 } from "@/lib/queries/narratives";
 
+export const dynamic='force-static';
+export const revalidate= 0;
+
 
 async function getCommercials() {
   const data = await hygraph.request<CommercialsPageQueryResult>(
