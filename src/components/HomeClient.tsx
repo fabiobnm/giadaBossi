@@ -30,7 +30,8 @@ export default function HomeClient({ commercials, narratives, video  }: Props) {
         transitionDelay:'1s',
         position: 'fixed',
         width: '100vW',
-        top: 0
+        top: 0,
+        background:'black'
       }}
     >
         {video && (

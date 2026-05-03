@@ -19,7 +19,6 @@ const isWork = pathname.startsWith("/work/");
           position: isHome ? "fixed" : 'relative',
           bottom: "0",
           padding: "10px",
-          paddingBottom:'2px',
           display: "grid",
           zIndex:99,
           gridAutoFlow: "column",

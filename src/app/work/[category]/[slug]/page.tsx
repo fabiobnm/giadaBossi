@@ -157,8 +157,9 @@ export default async function WorkPage({ params }: PageProps) {
              (project.width / project.height > 1) ?
             
               <iframe
-                src={embedUrl}
+                src={`${embedUrl}?title=0`}
                 title={project.title}
+                className="videoWork"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 style={{
@@ -173,8 +174,9 @@ export default async function WorkPage({ params }: PageProps) {
         : 
 
            <iframe
-                src={embedUrl}
+                src={`${embedUrl}?title=0`}
                 title={project.title}
+                className="videoWork"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 style={{
@@ -203,7 +205,7 @@ export default async function WorkPage({ params }: PageProps) {
                     <img
                       key={imgIndex}
                       src={img.url}
-                      alt=""
+                      alt="giada bossi photo"
                       style={{
                         width: "100%",
                         display: "block",
@@ -230,7 +232,7 @@ export default async function WorkPage({ params }: PageProps) {
                     <img
                       key={imgIndex}
                       src={img.url}
-                      alt=""
+                      alt="giada bossi film"
                       style={{
                         width: "100%",
                         display: "block",

@@ -1,5 +1,7 @@
 export type HomePage = {
   videoVimeo?: string[] | null;
+  instagramAccount?: string | null;
+  vimeoChannel?: string | null;
 };
 
 export type HomePageQueryResult = {
@@ -7,9 +9,11 @@ export type HomePageQueryResult = {
 };
 
 export const HOME_PAGE_QUERY = /* GraphQL */ `
-  query {
+query {
     homePages{
       videoVimeo
+      instagramAccount
+      vimeoChannel
     }
   }
 `;

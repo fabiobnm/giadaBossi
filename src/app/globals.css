@@ -202,6 +202,9 @@ a{
 .movimento{
   font-size: 18px !important;
 }
+.movimentoHome{
+  font-size: 18px !important;
+}
   .gridHeader{
   display: none;
  }
@@ -250,7 +253,9 @@ a{
   flex-direction: column;
   gap: 40px;
 }
-
+.videoWork{
+  width: calc(100vW - 20px) !important;
+}
 .mainCredit{
   margin-bottom: 20px;
   width: 100%;
