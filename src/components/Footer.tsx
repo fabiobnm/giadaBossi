@@ -20,7 +20,7 @@ const isWork = pathname.startsWith("/work/");
           color: (isAbout || isWork ) ? "black" : "white",          
         }}
       >
-        <p style={{gridColumn: '1 / span 1'}}>Instagram</p>
+        <p style={{gridColumn: '1 / span 1'}}><a href="https://www.instagram.com/giadabossi/">Instagram</a> </p>
         <p style={{gridColumn: '2 / span 1'}}>Vimeo</p>
         <TimeIT />
       </div>

@@ -154,7 +154,7 @@ useEffect(() => {
 };
 
   return (
-    <div className="tuttoVideo" style={{ position: "relative", width: "100%", zIndex:9999 }}>
+    <div className="tuttoVideo" style={{ position: "relative", width: "100%", zIndex:9999 , background:isPortrait? 'none': 'black', border:'none'}}>
       <iframe
         ref={iframeRef}
         src={`${embedUrl}?background=1&loop=1&byline=0&title=0`}
