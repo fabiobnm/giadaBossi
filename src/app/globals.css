@@ -97,7 +97,7 @@ a{
   animation-duration: 2s;
 }
 .sipario{
-  animation: siparioAnim 10s  forwards;
+  animation: siparioAnim 10s 1s forwards;
 }
 @keyframes siparioAnim {
   from {opacity: 1}
@@ -223,10 +223,10 @@ a{
   font-size: 16px;
 }
 .movimento{
-  font-size: 18px !important;
+  font-size: 16px !important;
 }
 .movimentoHome{
-  font-size: 18px !important;
+  font-size: 16px !important;
 }
   .gridHeader{
   display: none;
@@ -292,6 +292,22 @@ a{
   mask-image: none;
   padding-bottom: 30%;
 }
+
+.tuttoVideo .buttonContainer {
+  opacity: 1;
+  transition: opacity .0s ease 0s;
+}
+
+.tuttoVideo:not(:hover) .buttonContainer {
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+.tuttoVideo:hover .buttonContainer {
+  opacity: 1;
+  transition-delay: 0s;
+}
+
 
 
 }
