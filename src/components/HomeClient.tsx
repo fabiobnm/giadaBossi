@@ -31,7 +31,7 @@ export default function HomeClient({ commercials, narratives, video  }: Props) {
         position: 'fixed',
         width: '100vW',
         top: 0,
-        background:'black'
+        background:'red'
       }}
     >
         {video && (
@@ -54,6 +54,16 @@ export default function HomeClient({ commercials, narratives, video  }: Props) {
           zIndex:3
         }}
       ></div>
+      <div className="sipario"
+        style={{ position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vH",
+          background:'gold',
+          transition: "1.5s",
+          zIndex:3}}>
+      </div>
 
       <main className="">
       </main>

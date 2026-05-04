@@ -38,7 +38,8 @@
 body {
   background: #f2f1f1;
   color: black;
-  font-family: 'BastardoGrotesk-Semibold'
+  font-family: 'BastardoGrotesk-Semibold';
+  line-height: 1.15 !important;
 }
 .vimeo-wrapper {
   position: relative !important;
@@ -62,6 +63,22 @@ body {
     color: red;
 }
 
+.tuttoVideo .buttonContainer {
+  opacity: 1;
+  transition: opacity .3s ease 0s;
+}
+
+.tuttoVideo:not(:hover) .buttonContainer {
+  opacity: 0;
+  transition-delay: 2s;
+}
+
+.tuttoVideo:hover .buttonContainer {
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+
 
 p { 
   font-size: 14px;
@@ -79,7 +96,15 @@ a{
   animation: opacAnim;
   animation-duration: 2s;
 }
-
+.sipario{
+  animation: siparioAnim 2s 2s forwards;
+  animation-duration: 2s;
+  animation-delay: 2s;
+}
+@keyframes siparioAnim {
+  from {opacity: 1}
+  to {opacity: 0}
+}
 @keyframes opacAnim {
   from {opacity: 0}
   to {opacity: 1}

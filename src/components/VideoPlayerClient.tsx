@@ -27,6 +27,25 @@ export default function VideoPlayerClient({
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+ const [larghezzaAgg, setLarghezzaAgg] = useState<number | null>(null);
+
+useEffect(() => {
+  const updateSize = () => {
+    if (!height || !width) return;
+
+    const altezza = window.innerHeight;
+    const nuovaLarghezza = ((altezza - 20) / height) * width;
+
+    setLarghezzaAgg(nuovaLarghezza);
+  };
+
+  updateSize();
+  window.addEventListener("resize", updateSize);
+
+  return () => window.removeEventListener("resize", updateSize);
+}, [height, width]);
+
+  
 
     useEffect(() => {
     const checkMobile = () => {
@@ -135,7 +154,7 @@ export default function VideoPlayerClient({
 };
 
   return (
-    <div style={{ position: "relative", width: "100%", zIndex:9999 }}>
+    <div className="tuttoVideo" style={{ position: "relative", width: "100%", zIndex:9999 }}>
       <iframe
         ref={iframeRef}
         src={`${embedUrl}?background=1&loop=1&byline=0&title=0`}
@@ -162,30 +181,32 @@ export default function VideoPlayerClient({
      
      {isPortrait 
      ?
-     <div
+      <div className="buttonContainer"
         style={{
           position: "absolute",
-          bottom: 0,
+          paddingInline: "10px",
+          bottom:0,
           display: "grid",
           gap: "10px",
           zIndex: 10,
           mixBlendMode:'difference',
-          color:'white',
+          color:'#f2f1f1',
           gridTemplateColumns: 'repeat(7, 1fr)',
-          width:'50%',
+          width: larghezzaAgg ?? "100%",
+          fontSize:'12px',
           left:'50%',
           transform:'translateX(-50%)'
-
         }}
       >
         <button style={{gridColumn:' 1 / span 1', textAlign:'left', cursor:'pointer'}} onClick={togglePlay}>
-          {isPlaying ? "⏸︎ Pause" : "⏵ Play"}
+          {isPlaying ? "⏸︎\u00A0\u00A0\u00A0Pause" : "⏵\u00A0\u00A0\u00A0Play"}
         </button>
          {/* PROGRESS BAR */}
       <div
         onClick={seek}
         style={{
-          position: "absolute",
+            position: "absolute",
+          bottom: 7,
           left: 0,
           width: "100%",
           height: "4px",
@@ -200,26 +221,26 @@ export default function VideoPlayerClient({
             width: `${progress}%`,
             height: "100%",
             marginBottom:'20px',
-            background: "white",
+            background: "#f2f1f1",
           }}
         />
       </div>
-       <button style={{gridColumn:' 1 / span 1', cursor:'pointer', gridRow:2}} onClick={toggleAudio}>
+       <button style={{gridColumn:' 5 / span 1', cursor:'pointer'}} onClick={toggleAudio}>
           {isMuted ? "Unmute" : "mute"}
         </button>
-        <button style={{gridColumn:' 2 / span 1', cursor:'pointer',gridRow:2}} onClick={goFullscreen}>Fullscreen</button>
+        <button style={{gridColumn:' 6 / span 1', cursor:'pointer'}} onClick={goFullscreen}>Fullscreen</button>
         {/* TIME */}
-        <p style={{ gridColumn: "3 / span 2", textAlign: "center" ,gridRow:2, fontSize:'12px'}}>
-          {formatTime(currentTime)} / {formatTime(duration)}
+        <p style={{ gridColumn: "7 / span 1", textAlign: "right" , fontSize:'12px'}}>
+            {formatTime(currentTime)} 
         </p>
       
       </div>
-     :
-      <div
+     :  /*  ORIZZONTALE ORIZZONTALE ORIZZONTALE ORIZZONTALE ORIZZONTALE ORIZZONTALE ORIZZONTALE ORIZZONTALE ORIZZONTALE ORIZZONTALE */
+      <div className="buttonContainer"
         style={{
           position: "absolute",
-          bottom: 0,
           paddingInline: "10px",
+          bottom:0,
           display: "grid",
           gap: "10px",
           zIndex: 10,
@@ -231,7 +252,7 @@ export default function VideoPlayerClient({
         }}
       >
         <button style={{gridColumn:' 1 / span 1', textAlign:'left', cursor:'pointer'}} onClick={togglePlay}>
-          {isPlaying ? "⏸︎ Pause" : "⏵ Play"}
+          {isPlaying ? "⏸︎\u00A0\u00A0\u00A0Pause" : "⏵\u00A0\u00A0\u00A0Play"}
         </button>
          {/* PROGRESS BAR */}
       <div
