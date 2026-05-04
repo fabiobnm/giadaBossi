@@ -31,7 +31,7 @@ export default function HomeClient({ commercials, narratives, video  }: Props) {
         position: 'fixed',
         width: '100vW',
         top: 0,
-        background:'red'
+        background:'black'
       }}
     >
         {video && (
@@ -60,7 +60,7 @@ export default function HomeClient({ commercials, narratives, video  }: Props) {
           left: 0,
           width: "100vw",
           height: "100vH",
-          background:'gold',
+          background:'black',
           transition: "1.5s",
           zIndex:3}}>
       </div>

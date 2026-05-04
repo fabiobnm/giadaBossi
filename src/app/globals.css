@@ -97,9 +97,7 @@ a{
   animation-duration: 2s;
 }
 .sipario{
-  animation: siparioAnim 2s 2s forwards;
-  animation-duration: 2s;
-  animation-delay: 2s;
+  animation: siparioAnim 10s  forwards;
 }
 @keyframes siparioAnim {
   from {opacity: 1}
