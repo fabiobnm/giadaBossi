@@ -179,7 +179,7 @@ export default function VideoPlayerClient({
         }}
       >
         <button style={{gridColumn:' 1 / span 1', textAlign:'left', cursor:'pointer'}} onClick={togglePlay}>
-          {isPlaying ? "⏸︎ Pause" : "▶ Play"}
+          {isPlaying ? "⏸︎ Pause" : "⏵ Play"}
         </button>
          {/* PROGRESS BAR */}
       <div
@@ -231,7 +231,7 @@ export default function VideoPlayerClient({
         }}
       >
         <button style={{gridColumn:' 1 / span 1', textAlign:'left', cursor:'pointer'}} onClick={togglePlay}>
-          {isPlaying ? "⏸︎ Pause" : "▶ Play"}
+          {isPlaying ? "⏸︎ Pause" : "⏵ Play"}
         </button>
          {/* PROGRESS BAR */}
       <div
