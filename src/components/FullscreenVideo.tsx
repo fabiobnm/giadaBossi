@@ -36,7 +36,7 @@ function coverDimensions(
 
 export default function FullscreenVideo({
   src,
-  width = 160,
+  width = 16,
   height = 9,
 }: Props) {
   const [dimensions, setDimensions] = useState<Dimensions>({

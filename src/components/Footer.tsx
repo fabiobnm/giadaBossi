@@ -14,18 +14,10 @@ export default function Header() {
 const isWork = pathname.startsWith("/work/");
   return (
     <header>
-      <div
+      <div className="footerLink"
         style={{
           position: isHome ? "fixed" : 'relative',
-          bottom: "0",
-          padding: "10px",
-          display: "grid",
-          zIndex:99,
-          gridAutoFlow: "column",
-          gridTemplateColumns: 'repeat(12, 1fr)',
-          color: (isAbout || isWork ) ? "black" : "white",
-          width: "100vW",
-          
+          color: (isAbout || isWork ) ? "black" : "white",          
         }}
       >
         <p style={{gridColumn: '1 / span 1'}}>Instagram</p>

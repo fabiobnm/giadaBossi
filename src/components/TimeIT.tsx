@@ -38,5 +38,5 @@ export default function TimeIT() {
     return () => clearInterval(interval);
   }, []);
 
-  return <p style={{ display:isAbout?'none':'block'  ,gridColumn: '12 / span 1', textAlign:'right', whiteSpace:'nowrap'}}>{time}</p>;
+  return <p className="timeZone" style={{ display:isAbout?'none':'block'}}>{time}</p>;
 }

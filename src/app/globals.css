@@ -18,6 +18,13 @@
     --foreground: #000000;
   }
 }
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+}
 
 
 .homeBg {
@@ -40,6 +47,7 @@ body {
   color: black;
   font-family: 'BastardoGrotesk-Semibold';
   line-height: 1.15 !important;
+  overflow-x: hidden !important;
 }
 .vimeo-wrapper {
   position: relative !important;
@@ -209,8 +217,30 @@ padding: 10px;
   -webkit-mask-image: linear-gradient(black, transparent);
   mask-image: linear-gradient(black, transparent);
   padding-bottom: 7%;
+ -ms-overflow-style: none;  /* IE */
+  scrollbar-width: none;     /* Firefox */
 }
 
+
+
+.fullCredits::-webkit-scrollbar {
+  display: none;             /* Chrome */
+}
+
+.footerLink{
+    bottom: 0px;
+    padding: 10px;
+    display: grid;
+    z-index: 99;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(12, 1fr);
+    width: 100vw;
+}
+.timeZone{
+  grid-column: 12 / span 1;
+    text-align: right;
+    white-space: nowrap;
+}
 
 
 
@@ -307,7 +337,14 @@ a{
   opacity: 1;
   transition-delay: 0s;
 }
-
+.footerLink{
+    grid-template-columns: repeat(3, 1fr);
+}
+.timeZone{
+  grid-column: 3 / span 1;
+    text-align: right;
+    white-space: nowrap;
+}
 
 
 }
