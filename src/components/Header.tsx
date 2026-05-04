@@ -89,7 +89,7 @@ const isCommercial = pathname.startsWith("/work/commercial/");
     
   }
   return (
-    <header style={{position:'relative', zIndex:99999}}>
+    <header style={{position:'relative', zIndex:99}}>
       <div className="headerWork" style={{
           gridAutoFlow: "column",
           gridTemplateColumns:'repeat(12, 1fr)',

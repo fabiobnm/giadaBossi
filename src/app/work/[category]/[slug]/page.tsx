@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
 import { hygraph } from "@/lib/hygraph";
+import VideoPlayerClient from "@/components/VideoPlayerClient";
 import {
   COMMERCIALS_PAGE_QUERY,
   type CommercialsPageQueryResult,
@@ -152,45 +153,15 @@ export default async function WorkPage({ params }: PageProps) {
 
         <div>
 
-        {embedUrl && (
-
-             (project.width / project.height > 1) ?
-            
-              <iframe
-                src={`${embedUrl}?title=0`}
-                title={project.title}
-                className="videoWork"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                style={{
-                  position: "relative",
-                  inset: 0,
-                  aspectRatio: `${project.width} / ${project.height}`,
-                  border: 0,
-                  marginBottom:'10px',
-                  marginTop:'10px'
-                }}
-              />
-        : 
-
-           <iframe
-                src={`${embedUrl}?title=0`}
-                title={project.title}
-                className="videoWork"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                style={{
-                  position: "relative",
-                  inset: 0,
-                  height: 'calc(100vH - 20px)',
-                  width:'stretch',
-                  border: 0,
-                  marginBottom:'10px',
-                  marginTop:'10px'
-                }}
-              />
-
-        )}
+       {embedUrl && (
+  <VideoPlayerClient
+    embedUrl={embedUrl}
+    title={project.title}
+    width={project.width}
+    height={project.height}
+    isPortrait={project.width / project.height <= 1}
+  />
+)}
 
         {project.gallery.length > 0 ? (
   <p style={{ marginTop: "50px", marginBottom: "20px" }}>
