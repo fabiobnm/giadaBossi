@@ -28,6 +28,7 @@ export default function VideoPlayerClient({
   const [currentTime, setCurrentTime] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
  const [larghezzaAgg, setLarghezzaAgg] = useState<number | null>(null);
+  const [altezzaAgg, setAltezzaAgg] = useState<number | null>(null);
 
 useEffect(() => {
   const updateSize = () => {
@@ -37,6 +38,7 @@ useEffect(() => {
     const nuovaLarghezza = ((altezza - 20) / height) * width;
 
     setLarghezzaAgg(nuovaLarghezza);
+
   };
 
   updateSize();
@@ -44,7 +46,23 @@ useEffect(() => {
 
   return () => window.removeEventListener("resize", updateSize);
 }, [height, width]);
+/* LARGHEZZA */
 
+useEffect(() => {
+  const updateSize = () => {
+    if (!height || !width) return;
+
+    const larghezza = window.innerWidth;
+    const nuovaAltezza = ((larghezza - 20) / width) * height;
+
+    setAltezzaAgg(nuovaAltezza);
+  };
+  
+  updateSize();
+  window.addEventListener("resize", updateSize);
+
+  return () => window.removeEventListener("resize", updateSize);
+}, [height, width]);
   
 
     useEffect(() => {
@@ -152,6 +170,8 @@ useEffect(() => {
 
   return `${minutes}:${seconds}`;
 };
+      console.log('altezza'+altezzaAgg);
+
 
   return (
     <div className="tuttoVideo" style={{ position: "relative", width: "100%", zIndex:9999 , background:isPortrait? 'none': 'black', border:'none'}}>
@@ -165,7 +185,9 @@ useEffect(() => {
           isPortrait
             ? {
                 width: "100%",
-                height: "calc(100vh - 20px)",
+                  height: isMobile
+          ? `${altezzaAgg}px`
+          : "calc(100vh - 20px)",
                 border: 0,
                 marginTop:'10px'
               }
@@ -185,14 +207,14 @@ useEffect(() => {
         style={{
           position: "absolute",
           paddingInline: "10px",
-          bottom:0,
+          bottom:5,
           display: "grid",
           gap: "10px",
           zIndex: 10,
           mixBlendMode:'difference',
           color:'#f2f1f1',
           gridTemplateColumns: 'repeat(7, 1fr)',
-          width: larghezzaAgg ?? "100%",
+          width:  isMobile ? "100%" : (larghezzaAgg ?? "100%"),
           fontSize:'12px',
           left:'50%',
           transform:'translateX(-50%)'
@@ -206,7 +228,7 @@ useEffect(() => {
         onClick={seek}
         style={{
             position: "absolute",
-          bottom: 7,
+          bottom: '4.5px',
           left: 0,
           width: "100%",
           height: "4px",
@@ -240,7 +262,7 @@ useEffect(() => {
         style={{
           position: "absolute",
           paddingInline: "10px",
-          bottom:0,
+          bottom:5,
           display: "grid",
           gap: "10px",
           zIndex: 10,
@@ -259,7 +281,7 @@ useEffect(() => {
         onClick={seek}
         style={{
             position: "absolute",
-          bottom: 7,
+          bottom: '4.5px',
           left: 0,
           width: "100%",
           height: "4px",
