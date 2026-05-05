@@ -22,7 +22,7 @@ const isWork = pathname.startsWith("/work/");
       >
         <p style={{gridColumn: '1 / span 1'}}><a href="https://www.instagram.com/giadabossi" 
         target="_blank" rel="noopener noreferrer">Instagram</a> </p>
-        <p style={{gridColumn: '2 / span 1'}}>Vimeo</p>
+        <p style={{gridColumn: '2 / span 1'}}><a>Vimeo</a> </p>
         <TimeIT />
       </div>
     </header>

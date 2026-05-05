@@ -248,7 +248,7 @@ useEffect(() => {
         />
       </div>
        <button style={{gridColumn:' 5 / span 1', cursor:'pointer'}} onClick={toggleAudio}>
-          {isMuted ? "Unmute" : "mute"}
+          {isMuted ? "Unmute" : "Mute"}
         </button>
         <button style={{gridColumn:' 6 / span 1', cursor:'pointer'}} onClick={goFullscreen}>Fullscreen</button>
         {/* TIME */}
@@ -301,7 +301,7 @@ useEffect(() => {
         />
       </div>
        <button style={{gridColumn:' 5 / span 1', cursor:'pointer'}} onClick={toggleAudio}>
-          {isMuted ? "Unmute" : "mute"}
+          {isMuted ? "Unmute" : "Mute"}
         </button>
         <button style={{gridColumn:' 6 / span 1', cursor:'pointer'}} onClick={goFullscreen}>Fullscreen</button>
         {/* TIME */}
