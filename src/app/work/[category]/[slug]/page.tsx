@@ -159,6 +159,8 @@ export default async function WorkPage({ params }: PageProps) {
   <VideoPlayerClientNew
     embedUrl={embedUrl}
     title={project.title}
+   /* width={project.width}
+    height={project.height}  questi vengono da hygraph se si usa videoplayer vecchio */
     isPortrait={project.width / project.height <= 1}
   />
 )}

@@ -63,8 +63,12 @@ const isCommercial = pathname.startsWith("/work/commercial/");
       const isAlreadyOnWork = pathname.startsWith("/work/");
 
   toggleLeft();
+  toggleDark();
+
   setDarkUp(false);
   setLeftkUp(true);
+  setMenuUp(false);
+
 
   const delay = isAlreadyOnWork ? 0 : 1500;
 
@@ -77,8 +81,11 @@ const isCommercial = pathname.startsWith("/work/commercial/");
 
      const isAlreadyOnWork = pathname.startsWith("/work/");
      toggleLeft();
+      toggleDark();
     setDarkUp(false)
      setLeftkUp(true)
+    setMenuUp(false);
+
 
 
    const delay = isAlreadyOnWork ? 0 : 1500;

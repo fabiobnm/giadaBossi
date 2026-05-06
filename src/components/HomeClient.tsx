@@ -6,6 +6,9 @@ import { useTheme } from "@/context/ThemeContext";
 import type { Commercial } from "@/lib/queries/commercials";
 import { Narrative } from "@/lib/queries/narratives";
 import FullscreenVideo from "@/components/FullscreenVideo"
+import { log } from "console";
+import { useEffect } from "react";
+
 
 type Props = {
   commercials: Commercial[];
@@ -16,6 +19,19 @@ type Props = {
 export default function HomeClient({ commercials, narratives, video  }: Props) {
   const { dark } = useTheme();
   const { left } = useTheme();
+
+  const { setDark, setLeft } = useTheme();
+
+useEffect(() => {
+  setDark(false);
+  setLeft(false);
+}, []);
+
+
+  console.log('dark'+dark);
+  console.log('left'+left);
+  
+  
 
   return (
     <div>

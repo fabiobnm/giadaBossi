@@ -108,7 +108,7 @@ a{
   animation: opacNew 0.6s ease-out;
 }
 .sipario{
-  animation: siparioAnim 10s 1s forwards;
+  animation: siparioAnim 10s 0s forwards;
 }
 @keyframes siparioAnim {
   from {opacity: 1}
@@ -132,6 +132,25 @@ a{
 
   }
 }
+
+@keyframes headerWorkAnim {
+  from {
+    transform: translateY(-5vH);
+  }
+  to {
+        transform: translateY(0vW);
+
+  }
+}
+
+.headerWork{
+  transform: translateY(-5vH);
+}
+
+.isWorkAnimHeader{
+  animation: headerWorkAnim .8s forwards;
+}
+
 .movimento-wrapper:hover .movimento {
   opacity: 0.2;
   transition: opacity .3s;
@@ -261,6 +280,10 @@ padding: 10px;
 
 .footerLink a{
   opacity: 1;
+  transition: opacity .1s;
+}
+.footerLink a:hover{
+  opacity: .2;
 }
 
 .magentaCred{
