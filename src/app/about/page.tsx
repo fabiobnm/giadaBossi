@@ -56,12 +56,13 @@ export default async function Home() {
             PRESS
             <div style={{marginBottom:'150px', marginTop:'30px'}} dangerouslySetInnerHTML={{ __html: about?.press?.html ?? "Nessun contenuto AboutUs trovato." }}/>
           </div>
-          <img className="imageAbout"
+          <img className="imageAbout opacityAnimLong"
             src={about?.image?.url || ""}
             alt=""
           />
         </div>
         <Footer />
+      
       </main>
       
     </div>

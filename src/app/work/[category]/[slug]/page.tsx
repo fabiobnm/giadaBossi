@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
 import { hygraph } from "@/lib/hygraph";
 import VideoPlayerClient from "@/components/VideoPlayerClient";
+import VideoPlayerClientNew from "@/components/VideoPlayerClientNew";
+
 import {
   COMMERCIALS_PAGE_QUERY,
   type CommercialsPageQueryResult,
@@ -154,11 +156,9 @@ export default async function WorkPage({ params }: PageProps) {
         <div>
 
        {embedUrl && (
-  <VideoPlayerClient
+  <VideoPlayerClientNew
     embedUrl={embedUrl}
     title={project.title}
-    width={project.width}
-    height={project.height}
     isPortrait={project.width / project.height <= 1}
   />
 )}
